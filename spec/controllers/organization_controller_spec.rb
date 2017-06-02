@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe OrganizationsController, type: :controller do
+RSpec.describe V1::OrganizationsController, type: :controller do
 
 end
