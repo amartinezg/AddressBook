@@ -24,6 +24,7 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 gem 'annotate'
 gem 'devise_token_auth'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

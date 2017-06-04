@@ -21,13 +21,25 @@
 #  tokens                 :json
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role                   :string           default("regular")
 #
 
 FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
-    password_confirmation { "#{password}" } 
+    password_confirmation { "#{password}" }
     name { Faker::Name.name }
+
+    trait :admin do
+      role "admin"
+    end
+
+    trait :regular do
+      role "regular"
+    end
+
+    factory :admin_user, traits: [:admin]
+    factory :regular_user, traits: [:regular]
   end
 end
