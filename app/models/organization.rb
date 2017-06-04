@@ -15,4 +15,7 @@
 
 class Organization < ApplicationRecord
   validates :name, :address, :country, :contact_person, presence: true
+
+  has_many :suscriptions, dependent: :destroy
+  has_many :users, through: :suscriptions
 end
