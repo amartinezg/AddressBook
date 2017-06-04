@@ -1,6 +1,7 @@
 module V1
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :update, :destroy]
+    load_and_authorize_resource
 
     # GET /organizations
     def index

@@ -5,15 +5,15 @@ RSpec.describe "Users API", type: :request do
   # Test suite for POST /auth/
   describe "POST /auth" do
     let!(:organizations) { create_list(:organization, 2) }
-    let(:params){{email: "user@strv.com", 
+    let(:params){{email: "user@strv.com",
                   password: "12345678",
                   password_confirmation: "12345678",
                   suscriptions_attributes: [
-                    {organization_id: organizations.first.id}, 
+                    {organization_id: organizations.first.id},
                     {organization_id: organizations.last.id}
                   ]}}
     before { post '/auth', params: params }
-    
+
     it "creates an user associated with some organizations" do
       user = User.find(json['data']['id'])
       organizations = user.organizations

@@ -21,6 +21,7 @@
 #  tokens                 :json
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role                   :string           default("regular")
 #
 
 class User < ActiveRecord::Base
@@ -34,4 +35,10 @@ class User < ActiveRecord::Base
   has_many :organizations, through: :suscriptions
 
   accepts_nested_attributes_for :suscriptions, allow_destroy: true
+
+  ROLES = %i[admin regular]
+
+  ROLES.each do |role|
+    define_method("#{role}?"){ self.role == role.to_s }
+  end
 end

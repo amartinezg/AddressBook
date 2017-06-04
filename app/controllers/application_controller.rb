@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
   include ExceptionHandler
+  include CanCan::ControllerAdditions
 
   before_action :permitted_params, if: :devise_controller?
 
