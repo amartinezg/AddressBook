@@ -31,6 +31,14 @@ FactoryGirl.define do
     password_confirmation { "#{password}" }
     name { Faker::Name.name }
 
+    transient do
+      organizations_count 1
+    end
+
+    after(:create) do |user, evaluator|
+      create_list(:organization, evaluator.organizations_count, users: [user])
+    end    
+
     trait :admin do
       role "admin"
     end

@@ -26,6 +26,16 @@ class Contact
     self.new(params.merge!("id" => id))
   end
 
+  def update
+    params = Hash[instance_variables.reduce([]) do |arr, key|
+      value = instance_variable_get key
+      arr << [key.to_s.gsub('@',''), instance_variable_get(key)] if value
+      arr
+    end]
+    FirebaseWrapper.update(params.delete("organization_id"), params.delete("id"), params)
+    true
+  end
+
   def destroy
     FirebaseWrapper.delete(@organization_id, @id)
   end
