@@ -1,0 +1,99 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "auth",
+  "apis": [
+    {
+      "path": "/auth",
+      "operations": [
+        {
+          "summary": "Create an User",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "required",
+              "description": "Email of the user",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "password",
+              "type": "required",
+              "description": "password of the user",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "password_confirmation",
+              "type": "required",
+              "description": "password of the user",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "suscriptions_attributes",
+              "type": "required",
+              "description": "Pass array of organization_id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "In the suscriptions_attributes pass multiple organizations as ['organization_id':'1']",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/auth/sign_in",
+      "operations": [
+        {
+          "summary": "Log in user",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "required",
+              "description": "Email of the user",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "password",
+              "type": "required",
+              "description": "password of the user",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "In the suscriptions_attributes pass multiple organizations as ['organization_id':'1']",
+          "method": "post"
+        }
+      ]
+    }    
+  ],
+  "authorizations": null
+}
