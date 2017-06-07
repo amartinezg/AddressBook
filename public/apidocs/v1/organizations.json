@@ -1,0 +1,430 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "organizations",
+  "apis": [
+    {
+      "path": "/organizations",
+      "operations": [
+        {
+          "summary": "Fetches all organizations",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "access-token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "token-type",
+              "type": "string",
+              "description": "Token type",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "client",
+              "type": "string",
+              "description": "Client",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "expiry",
+              "type": "string",
+              "description": "Expiry",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "uid",
+              "type": "string",
+              "description": "Uid",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Requested Range Not Satisfiable"
+            }
+          ],
+          "notes": "Admin and regular users can list organizations, do not forget authentication headers",
+          "nickname": "V1::Organizations#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/organizations",
+      "operations": [
+        {
+          "summary": "To create an organization",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "required",
+              "description": "Name of Organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "address",
+              "type": "required",
+              "description": "address of organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "country",
+              "type": "required",
+              "description": "country of organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "contact_person",
+              "type": "required",
+              "description": "Contact person of the organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Contact person's email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "web_site",
+              "type": "string",
+              "description": "Web site of the organization",
+              "required": false
+            },
+            {
+              "paramType": "header",
+              "name": "access-token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "token-type",
+              "type": "string",
+              "description": "Token type",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "client",
+              "type": "string",
+              "description": "Client",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "expiry",
+              "type": "string",
+              "description": "Expiry",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "uid",
+              "type": "string",
+              "description": "Uid",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "responseModel": null,
+              "message": "Created"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "Only admin users can create organizations, do not forget authentication headers",
+          "nickname": "V1::Organizations#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/organizations/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single Organization",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "access-token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "token-type",
+              "type": "string",
+              "description": "Token type",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "client",
+              "type": "string",
+              "description": "Client",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "expiry",
+              "type": "string",
+              "description": "Expiry",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "uid",
+              "type": "string",
+              "description": "Uid",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Organization id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "Admin and regular users can show organizations, do not forget authentication headers",
+          "nickname": "V1::Organizations#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/organizations/{id}",
+      "operations": [
+        {
+          "summary": "To update an organization",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "access-token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "token-type",
+              "type": "string",
+              "description": "Token type",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "client",
+              "type": "string",
+              "description": "Client",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "expiry",
+              "type": "string",
+              "description": "Expiry",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "uid",
+              "type": "string",
+              "description": "Uid",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "required",
+              "description": "Name of Organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "address",
+              "type": "required",
+              "description": "address of organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "country",
+              "type": "required",
+              "description": "country of organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "contact_person",
+              "type": "required",
+              "description": "Contact person of the organization",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Contact person's email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "web_site",
+              "type": "string",
+              "description": "Web site of the organization",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "Only admin users can update organizations, do not forget authentication headers",
+          "nickname": "V1::Organizations#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/organizations/{id}",
+      "operations": [
+        {
+          "summary": "To destroy an organization",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "access-token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "token-type",
+              "type": "string",
+              "description": "Token type",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "client",
+              "type": "string",
+              "description": "Client",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "expiry",
+              "type": "string",
+              "description": "Expiry",
+              "required": true
+            },
+            {
+              "paramType": "header",
+              "name": "uid",
+              "type": "string",
+              "description": "Uid",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Error"
+            }
+          ],
+          "notes": "Only admin users can destroy organizations, do not forget authentication headers",
+          "nickname": "V1::Organizations#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}
