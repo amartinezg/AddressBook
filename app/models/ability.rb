@@ -5,6 +5,7 @@ class Ability
     if user
       can :manage, :all if user.admin?
       can :read, Organization if user.regular?
+      can :manage, Contact if user.regular?
     end
   end
 end

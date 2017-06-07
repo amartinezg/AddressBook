@@ -16,4 +16,15 @@ module RequestSpecHelper
     }
   end
 
+  def firebase_valid_response
+    {"-KlxNNEaAPS4G6xVxijL"=>
+      { "address"=>"Cl 47 45 28", 
+        "country"=>"Colombia", 
+        "last_name"=>"Gutierrez", 
+        "name"=>"Stella", 
+        "organization_id"=>"2520e0e1-2f6e-4543-8ad8-0cab1cf9e670"
+      }
+    }
+  end
+
 end

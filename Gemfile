@@ -25,6 +25,7 @@ gem 'puma', '~> 3.7'
 gem 'annotate'
 gem 'devise_token_auth'
 gem 'cancancan', '~> 1.10'
+gem 'firebase'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +44,7 @@ group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

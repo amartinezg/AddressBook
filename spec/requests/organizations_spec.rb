@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Organizations API', type: :request do
 
-  let!(:organizations) { create_list(:organization, 10) }
+  let!(:organizations) { create_list(:organization, 9) }
   let(:organization_id) { organizations.first.id }
   let(:valid_user) { create(:admin_user) }
   let(:regular_user) { create(:regular_user) }
@@ -36,8 +36,8 @@ RSpec.describe 'Organizations API', type: :request do
     context "When the user is not logged in" do
       before { get '/organizations' }
 
-      it 'returns status code 403' do
-        expect(response).to have_http_status(403)
+      it 'returns status code 401' do
+        expect(response).to have_http_status(401)
       end
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe 'Organizations API', type: :request do
         end
 
         it 'returns not found message' do
-          expect(response.body).to match(/Couldn't find Organization/)
+          expect(response.body).to match(/Organization does not exist/)
         end
       end
     end
@@ -93,7 +93,7 @@ RSpec.describe 'Organizations API', type: :request do
         end
 
         it 'returns not found message' do
-          expect(response.body).to match(/Couldn't find Organization/)
+          expect(response.body).to match(/Organization does not exist/)
         end
       end
     end
@@ -101,8 +101,8 @@ RSpec.describe 'Organizations API', type: :request do
     context "When the user is not logged in" do
       before { get "/organizations/#{organization_id}" }
 
-      it 'returns status code 403' do
-        expect(response).to have_http_status(403)
+      it 'returns status code 401' do
+        expect(response).to have_http_status(401)
       end
     end
 
@@ -196,8 +196,8 @@ RSpec.describe 'Organizations API', type: :request do
     context 'When the user is not logged in' do
       before { put "/organizations/#{organization_id}", params: valid_params }
 
-      it 'returns status code 403' do
-        expect(response).to have_http_status(403)
+      it 'returns status code 401' do
+        expect(response).to have_http_status(401)
       end
     end
   end
@@ -223,8 +223,8 @@ RSpec.describe 'Organizations API', type: :request do
     context "When the user is not logged in" do
       before { delete "/organizations/#{organization_id}" }
 
-      it 'returns status code 403' do
-        expect(response).to have_http_status(403)
+      it 'returns status code 401' do
+        expect(response).to have_http_status(401)
       end
     end
   end
